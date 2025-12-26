@@ -302,3 +302,23 @@ footer{
   .navlinks{ display:none; }
 }
 
+/* Hero image panel */
+.hero-image-panel{
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(17,18,20,0.15), rgba(17,18,20,0.55)),
+    url("/assets/img/hero-trade.jpg") center/cover no-repeat;
+}
+
+.hero-image-overlay{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Make stats readable on image */
+.hero-image-panel .stat{
+  background: rgba(247,247,244,0.82);
+  border-color: rgba(255,255,255,0.35);
+}
