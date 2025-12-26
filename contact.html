@@ -1,43 +1,99 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Contact | Falcon Gate International</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Contact Falcon Gate International. Submit an inquiry for global trade, sourcing, or cross-border advisory support." />
+  <link rel="canonical" href="https://www.falcongateintl.com/contact.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css" />
 </head>
 <body>
-
 <header>
-  <h1>Falcon Gate International</h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <div class="container nav">
+    <a class="brand" href="/">
+      <img src="/assets/img/logo.png" alt="Falcon Gate International logo">
+      <span>Falcon Gate International</span>
+    </a>
+    <nav class="navlinks">
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+    <a class="btn btn-primary" href="/contact.html">Request a Consultation</a>
+  </div>
 </header>
 
-<div class="container">
+<main class="section">
+  <div class="container">
+    <div class="card service">
+      <div class="kicker">Contact</div>
+      <h1>Submit an inquiry</h1>
+      <p class="lead">Send a message and our team will respond within one business day.</p>
+    </div>
 
-  <section class="section">
-    <h3>Get in Touch</h3>
-    <p>
-      For inquiries related to sourcing, partnerships, or international trade,
-      please reach out to us:
-    </p>
+    <div class="card form" style="margin-top:16px;">
+      <form action="https://formspree.io/f/xgoeoekn" method="POST">
+        <label>
+          Name
+          <input type="text" name="name" required>
+        </label>
 
-    <p>
-      <strong>Email:</strong><br>
-      <a href="mailto:info@falcongateintl.com">info@falcongateintl.com</a><br>
-      <a href="mailto:contact@falcongateintl.com">contact@falcongateintl.com</a><br>
-      <a href="mailto:zahra@falcongateintl.com">zahra@falcongateintl.com</a>
-    </p>
-  </section>
+        <label>
+          Company
+          <input type="text" name="company">
+        </label>
 
-</div>
+        <label>
+          Email
+          <input type="email" name="email" required>
+        </label>
+
+        <label>
+          Country
+          <input type="text" name="country">
+        </label>
+
+        <label>
+          Inquiry Type
+          <select name="inquiry_type" required>
+            <option value="">Select one</option>
+            <option>Trade & Sourcing</option>
+            <option>Import / Export Support</option>
+            <option>Advisory & Partnerships</option>
+          </select>
+        </label>
+
+        <label>
+          Message
+          <textarea name="message" rows="6" required></textarea>
+        </label>
+
+        <!-- simple spam trap -->
+        <input type="text" name="_gotcha" style="display:none">
+
+        <button class="btn btn-primary" type="submit">Submit Inquiry</button>
+        <small>
+          Prefer email? You can also reach us at
+          <a href="mailto:info@falcongateintl.com">info@falcongateintl.com</a>.
+        </small>
+      </form>
+    </div>
+  </div>
+</main>
 
 <footer>
-  © Falcon Gate International
+  <div class="container">
+    © <span id="year"></span> Falcon Gate International. All rights reserved.
+  </div>
 </footer>
 
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
