@@ -1,46 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>About | Falcon Gate International</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Learn about Falcon Gate International—our approach to global trade, sourcing, and cross-border advisory services." />
+  <link rel="canonical" href="https://www.falcongateintl.com/about.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css" />
 </head>
 <body>
-
 <header>
-  <h1>Falcon Gate International</h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <div class="container nav">
+    <a class="brand" href="/">
+      <img src="/assets/img/logo.png" alt="Falcon Gate International logo">
+      <span>Falcon Gate International</span>
+    </a>
+    <nav class="navlinks">
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+    <a class="btn btn-primary" href="/contact.html">Request a Consultation</a>
+  </div>
 </header>
 
-<div class="container">
+<main class="section">
+  <div class="container">
+    <div class="card service">
+      <div class="kicker">About Falcon Gate International</div>
+      <h1>Built for disciplined cross-border execution.</h1>
+      <p class="lead">
+        Falcon Gate International supports businesses operating across borders with trade, sourcing, and advisory services.
+        Our approach is structured, relationship-driven, and designed to reduce ambiguity in international transactions.
+      </p>
+    </div>
 
-  <section class="section">
-    <h3>Our Mission</h3>
-    <p>
-      To simplify international trade by delivering transparent,
-      reliable, and strategic solutions that help our clients
-      operate confidently across borders.
-    </p>
-  </section>
+    <div class="split">
+      <div class="card service">
+        <h2>What we do</h2>
+        <ul class="list">
+          <li>Support international trade execution (import/export coordination).</li>
+          <li>Assist with global sourcing and supplier coordination.</li>
+          <li>Provide cross-border advisory support aligned to practical realities.</li>
+        </ul>
+      </div>
+      <div class="card service">
+        <h2>How we operate</h2>
+        <ul class="list">
+          <li>Clear scope and documented communication.</li>
+          <li>Timeline-driven coordination and follow-through.</li>
+          <li>Compliance-minded support (without bureaucracy).</li>
+        </ul>
+      </div>
+    </div>
 
-  <section class="section">
-    <h3>Our Approach</h3>
-    <p>
-      We combine industry knowledge, global relationships,
-      and disciplined execution to support businesses
-      navigating complex international markets.
-    </p>
-  </section>
-
-</div>
+    <div class="card service" style="margin-top:16px;">
+      <h2>Our standard</h2>
+      <p class="subhead">
+        We aim to earn trust through responsiveness, precision, and consistent execution. If you value professionalism and
+        clarity in international commerce, you’ll feel the difference.
+      </p>
+      <div style="margin-top:14px;">
+        <a class="btn btn-primary" href="/contact.html">Work With Us</a>
+        <a class="btn btn-secondary" href="mailto:info@falcongateintl.com">Email info@</a>
+      </div>
+    </div>
+  </div>
+</main>
 
 <footer>
-  © Falcon Gate International
+  <div class="container">
+    © <span id="year"></span> Falcon Gate International. All rights reserved.
+  </div>
 </footer>
 
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
