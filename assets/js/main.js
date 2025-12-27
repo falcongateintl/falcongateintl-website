@@ -1,66 +1,92 @@
 (() => {
-  // Footer year
+  // Year
   const y = document.getElementById("year");
   if (y) y.textContent = String(new Date().getFullYear());
 
-  // Mobile drawer
-  const btn = document.querySelector(".mobile-toggle");
+  // Mobile drawer toggle
+  const header = document.querySelector(".header");
+  const btn = document.getElementById("menuBtn");
   const drawer = document.getElementById("mobileDrawer");
-  if (btn && drawer) {
+
+  if (btn && drawer && header) {
+    const setOpen = (open) => {
+      btn.setAttribute("aria-expanded", String(open));
+      drawer.hidden = !open;
+      header.classList.toggle("menu-open", open);
+    };
+
+    setOpen(false);
+
     btn.addEventListener("click", () => {
-      const isOpen = btn.getAttribute("aria-expanded") === "true";
-      btn.setAttribute("aria-expanded", String(!isOpen));
-      drawer.hidden = isOpen;
-      drawer.style.display = isOpen ? "none" : "block";
+      const open = btn.getAttribute("aria-expanded") !== "true";
+      setOpen(open);
     });
 
-    // Close drawer when clicking a link
-    drawer.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => {
-        btn.setAttribute("aria-expanded", "false");
-        drawer.hidden = true;
-        drawer.style.display = "none";
-      });
+    drawer.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", () => setOpen(false));
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") setOpen(false);
     });
   }
 
-  // Contact form (mailto prefill)
+  // Formspree submit
   const form = document.getElementById("contactForm");
   if (!form) return;
 
   const status = document.getElementById("formStatus");
-  const emailTo = "info@falcongateintl.com";
-  const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || "").trim());
+  const submitBtn = form.querySelector('button[type="submit"]');
 
-  form.addEventListener("submit", (e) => {
+  const setStatus = (msg) => {
+    if (status) status.textContent = msg;
+  };
+
+  const setLoading = (loading) => {
+    if (!submitBtn) return;
+    submitBtn.disabled = loading;
+    submitBtn.textContent = loading ? "Sending…" : "Send message";
+  };
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const name = form.querySelector("#name")?.value?.trim();
-    const email = form.querySelector("#email")?.value?.trim();
-    const company = form.querySelector("#company")?.value?.trim();
-    const topic = form.querySelector("#topic")?.value?.trim();
-    const message = form.querySelector("#message")?.value?.trim();
+    setStatus("");
+    setLoading(true);
 
-    if (!name || !email || !topic || !message || !isEmail(email)) {
-      if (status) status.textContent = "Please complete the required fields (valid email, topic, and message).";
-      return;
+    try {
+      const action = form.getAttribute("action");
+      if (!action) {
+        setStatus("Form is missing the Formspree action URL.");
+        setLoading(false);
+        return;
+      }
+
+      const formData = new FormData(form);
+
+      const res = await fetch(action, {
+        method: "POST",
+        body: formData,
+        headers: { "Accept": "application/json" }
+      });
+
+      if (res.ok) {
+        form.reset();
+        setStatus("Message sent. We’ll respond shortly.");
+      } else {
+        let msg = "Something went wrong. Please try again or email info@falcongateintl.com.";
+        try {
+          const data = await res.json();
+          if (data && data.errors && data.errors.length) {
+            msg = data.errors.map(e => e.message).join(" ");
+          }
+        } catch {}
+        setStatus(msg);
+      }
+    } catch (err) {
+      setStatus("Network error. Please try again or email info@falcongateintl.com.");
+    } finally {
+      setLoading(false);
     }
-
-    const subject = `Website Inquiry: ${topic}`;
-    const lines = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      company ? `Company: ${company}` : null,
-      `Topic: ${topic}`,
-      "",
-      "Message:",
-      message
-    ].filter(Boolean);
-
-    const body = encodeURIComponent(lines.join("\n"));
-    const url = `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${body}`;
-
-    if (status) status.textContent = "Opening your email client…";
-    window.location.href = url;
   });
 })();
