@@ -3,13 +3,33 @@
   const y = document.getElementById("year");
   if (y) y.textContent = String(new Date().getFullYear());
 
-  // Contact form: static-site friendly (mailto prefill)
+  // Mobile drawer
+  const btn = document.querySelector(".mobile-toggle");
+  const drawer = document.getElementById("mobileDrawer");
+  if (btn && drawer) {
+    btn.addEventListener("click", () => {
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!isOpen));
+      drawer.hidden = isOpen;
+      drawer.style.display = isOpen ? "none" : "block";
+    });
+
+    // Close drawer when clicking a link
+    drawer.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => {
+        btn.setAttribute("aria-expanded", "false");
+        drawer.hidden = true;
+        drawer.style.display = "none";
+      });
+    });
+  }
+
+  // Contact form (mailto prefill)
   const form = document.getElementById("contactForm");
   if (!form) return;
 
   const status = document.getElementById("formStatus");
   const emailTo = "info@falcongateintl.com";
-
   const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || "").trim());
 
   form.addEventListener("submit", (e) => {
