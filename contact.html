@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <title>Contact | Falcon Gate International</title>
-  <meta name="description" content="Contact Falcon Gate International. Send a sourcing or trade request and we’ll reply with next steps." />
+  <meta name="description" content="Contact Falcon Gate International. Send a sourcing or trade request and we’ll respond with next steps." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://www.falcongateintl.com/contact.html" />
 
   <meta property="og:title" content="Contact | Falcon Gate International" />
-  <meta property="og:description" content="Send a sourcing or trade request and we’ll reply with next steps." />
+  <meta property="og:description" content="Send a sourcing or trade request and we’ll respond with next steps." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.falcongateintl.com/contact.html" />
   <meta property="og:image" content="https://www.falcongateintl.com/assets/img/trade-1.jpg" />
@@ -26,7 +26,7 @@
 </head>
 
 <body>
-  <div class="bg-ambient" aria-hidden="true"></div>
+  <div class="ambient" aria-hidden="true"></div>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="header">
@@ -35,7 +35,7 @@
         <img src="assets/img/logo.png" alt="Falcon Gate International logo" />
         <div class="brand-meta">
           <div class="brand-name">Falcon Gate International</div>
-          <div class="brand-sub">Sourcing • Procurement • Trade Coordination</div>
+          <div class="brand-sub">Global sourcing • Procurement support • Trade coordination</div>
         </div>
       </a>
 
@@ -53,7 +53,7 @@
       </button>
     </div>
 
-    <div id="mobileDrawer" class="mobile-drawer" hidden>
+    <div id="mobileDrawer" class="drawer" hidden>
       <div class="container drawer-inner">
         <a href="/">Home</a>
         <a href="/about.html">About</a>
@@ -66,34 +66,33 @@
     <section class="section">
       <div class="container">
         <div class="kicker">Contact</div>
-        <h1 style="margin-top:10px;">Send a request. We’ll respond with next steps.</h1>
-        <p class="lead">For the fastest quote, include product/spec, quantity, destination, and timeline.</p>
+        <h1 style="margin-top:10px;">Send a request. We’ll respond with a clean next step.</h1>
+        <p class="lead">
+          Keep it short. If you include product/spec, quantity, destination, and timeline, we can respond faster.
+        </p>
 
         <div class="split" style="margin-top:22px;">
           <div class="panel">
             <h2 class="h2">Request form</h2>
-            <p class="small">This form submits securely via Formspree.</p>
+            <p class="small">This form submits via Formspree.</p>
             <hr class="hr" />
 
             <form
-              id="contactForm"
               class="form"
-              action="https://formspree.io/f/xgoeoekn"
+              action="YOUR_FORMSPREE_URL"
               method="POST"
             >
-              <!-- Formspree best practice: subject line -->
               <input type="hidden" name="_subject" value="Falcon Gate International — Website Inquiry" />
-              <!-- Optional: redirect URL (only used if you remove JS) -->
-              <input type="hidden" name="_redirect" value="https://www.falcongateintl.com/contact.html" />
+              <input type="hidden" name="_replyto" value="" />
 
               <div class="field">
                 <label for="name">Name *</label>
-                <input id="name" name="name" type="text" autocomplete="name" required />
+                <input id="name" name="name" type="text" required autocomplete="name" />
               </div>
 
               <div class="field">
                 <label for="email">Email *</label>
-                <input id="email" name="email" type="email" autocomplete="email" required />
+                <input id="email" name="email" type="email" required autocomplete="email" />
               </div>
 
               <div class="field">
@@ -102,11 +101,11 @@
               </div>
 
               <div class="field">
-                <label for="request">Request type *</label>
-                <select id="request" name="request" required>
+                <label for="topic">Request type *</label>
+                <select id="topic" name="topic" required>
                   <option value="" selected disabled>Select…</option>
                   <option value="Sourcing / RFQ">Sourcing / RFQ</option>
-                  <option value="Procurement Coordination">Procurement Coordination</option>
+                  <option value="Procurement Support">Procurement Support</option>
                   <option value="Trade Coordination">Trade Coordination</option>
                   <option value="General Inquiry">General Inquiry</option>
                 </select>
@@ -117,25 +116,41 @@
                 <textarea id="message" name="message" required placeholder="Product/spec, quantity, destination, timeline."></textarea>
               </div>
 
-              <!-- Honeypot (spam reduction) -->
+              <!-- Honeypot -->
               <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
-                <label>Leave this field empty</label>
+                <label>Leave this empty</label>
                 <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
               </div>
 
               <div class="actions">
-                <button type="submit" class="btn btn-primary">Send message</button>
+                <button class="btn btn-primary" type="submit">Send message</button>
                 <a class="btn btn-ghost" href="mailto:info@falcongateintl.com">Email instead</a>
               </div>
 
-              <div id="formStatus" class="small" aria-live="polite"></div>
+              <div class="small" style="margin-top:10px;color:rgba(11,18,32,.62)">
+                Prefer email? <a href="mailto:info@falcongateintl.com" style="text-decoration:underline">info@falcongateintl.com</a>
+              </div>
             </form>
           </div>
 
-          <div class="media" aria-label="Trade operations">
+          <div class="media">
             <img src="assets/img/trade-1.jpg" alt="Trade operations" loading="lazy" />
           </div>
         </div>
+
+        <section class="section-tight section-line" style="margin-top:22px;">
+          <div class="panel">
+            <div class="kicker">Fastest response</div>
+            <h2 class="h2" style="margin-top:10px;">If you only send four things, send these.</h2>
+            <div class="grid grid-2" style="margin-top:14px;">
+              <span class="tag"><span class="dot"></span><b>Product</b> and spec</span>
+              <span class="tag"><span class="dot"></span><b>Quantity</b> / packaging</span>
+              <span class="tag"><span class="dot"></span><b>Destination</b> city/country</span>
+              <span class="tag"><span class="dot"></span><b>Timeline</b> target date</span>
+            </div>
+          </div>
+        </section>
+
       </div>
     </section>
   </main>
@@ -147,11 +162,11 @@
           <img src="assets/img/logo.png" alt="" aria-hidden="true" />
           <div>
             <div class="brand-name">Falcon Gate International</div>
-            <div class="small">Sourcing • Procurement • Trade Coordination</div>
+            <div class="small">Global sourcing • Procurement support • Trade coordination</div>
           </div>
         </div>
 
-        <div class="footer-links" aria-label="Footer links">
+        <div class="footer-links" aria-label="Footer">
           <a href="/about.html">About</a>
           <a href="mailto:info@falcongateintl.com">info@falcongateintl.com</a>
         </div>
