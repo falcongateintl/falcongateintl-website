@@ -18,7 +18,6 @@
 
   <link rel="icon" href="assets/img/logo.png" />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@450;550;650&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -55,7 +54,7 @@
       <nav class="nav" aria-label="Primary">
         <a href="/" aria-current="page">Home</a>
         <a href="/about.html">About</a>
-        <a class="cta" href="/contact.html">Contact</a>
+        <a href="/contact.html">Contact</a>
       </nav>
 
       <button id="menuBtn" class="menu-btn" type="button" aria-expanded="false" aria-controls="mobileDrawer">
@@ -70,15 +69,20 @@
       <div class="container drawer-inner">
         <a href="/" aria-current="page">Home</a>
         <a href="/about.html">About</a>
-        <a class="primary" href="/contact.html">Contact</a>
+        <a href="/contact.html">Contact</a>
       </div>
     </div>
   </header>
 
   <main id="main">
+
     <section class="hero">
-      <div class="container hero-grid">
-        <div>
+      <div class="hero-bg" aria-hidden="true">
+        <img src="assets/img/hero-trade.jpg" alt="" />
+      </div>
+
+      <div class="container">
+        <div class="hero-content">
           <div class="kicker">Global trade, executed professionally</div>
           <h1>Clear sourcing. Clean coordination. Reliable follow-through.</h1>
           <p class="lead">
@@ -98,14 +102,10 @@
             <span class="tag"><span class="dot"></span><b>Fast</b> communication cadence</span>
           </div>
         </div>
-
-        <div class="hero-media" aria-label="Global logistics">
-          <img src="assets/img/hero-trade.jpg" alt="Global logistics and trade" loading="eager" />
-        </div>
       </div>
     </section>
 
-    <section class="section section-line">
+    <section class="section">
       <div class="container">
         <div class="kicker">What we do</div>
         <h2 class="h2" style="margin-top:10px;">Three outcomes clients care about.</h2>
@@ -151,16 +151,12 @@
               <a class="btn btn-primary" href="/contact.html">Contact</a>
               <a class="btn btn-ghost" href="/about.html">More detail</a>
             </div>
-
-            <div class="small" style="margin-top:12px;">
-              Serving clients globally. Procurement support and trade coordination; terms confirmed in writing.
-            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section-tight">
+    <section class="section-tight section-line">
       <div class="container">
         <div class="panel">
           <div class="kicker">Start clean</div>
@@ -183,16 +179,23 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="footer">
     <div class="container">
+
       <div class="footer-top">
         <div class="footer-brand">
           <img src="assets/img/logo.png" alt="" aria-hidden="true" />
           <div>
             <div class="brand-name">Falcon Gate International</div>
             <div class="small">Global sourcing • Procurement support • Trade coordination</div>
+
+            <div class="footer-copy">
+              Process-first sourcing and trade coordination. Clear scope. Written confirmations. Consistent follow-through.<br/>
+              Typical response time: 1 business day.
+            </div>
           </div>
         </div>
 
@@ -204,9 +207,10 @@
         </div>
       </div>
 
-      <div class="small" style="margin-top:14px;">
-        © <span id="year"></span> Falcon Gate International. All rights reserved.
+      <div class="footer-bottom">
+        <p class="small">© <span id="year"></span> Falcon Gate International. All rights reserved.</p>
       </div>
+
     </div>
   </footer>
 
