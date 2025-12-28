@@ -81,7 +81,7 @@ a:hover{text-decoration:none}
 /* Brand (flat logo) */
 .brand{display:flex;align-items:center;gap:12px;min-width:0}
 .brand img{
-  width:90px;height:90px;object-fit:contain;
+  width:96px;height:96px;object-fit:contain;
   border-radius:0;
   background:transparent;
   border:none;
@@ -349,7 +349,7 @@ textarea{resize:vertical;min-height:150px}
 /* FOOTER (professional; no pills; small flat logo) */
 .footer{
   border-top:1px solid rgba(11,18,32,.10);
-  padding:30px 0 34px;
+  padding:40px 0 44px;
   background:rgba(255,255,255,.70);
 }
 .footer-top{
@@ -449,4 +449,30 @@ textarea{resize:vertical;min-height:150px}
 @media (prefers-reduced-motion: reduce){
   *{transition:none !important; scroll-behavior:auto !important}
   .card:hover,.btn:hover{transform:none !important}
+}
+
+/* ===============================
+   Contact page: stacked layout
+   (form + full-width image below)
+   =============================== */
+
+.contact-stack{
+  display:flex;
+  flex-direction:column;
+  gap:16px; /* matches your split gap rhythm */
+}
+
+.contact-image{
+  border-radius:var(--r-xl);
+  overflow:hidden;
+  border:1px solid rgba(11,18,32,.10);
+  box-shadow:var(--shadow);
+  background:#fff;
+}
+
+.contact-image img{
+  width:100%;
+  height:380px; /* matches .media img height for consistency */
+  object-fit:cover;
+  display:block;
 }
