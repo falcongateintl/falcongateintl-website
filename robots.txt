@@ -1,1 +1,4 @@
-robots.txt
+User-agent: *
+Disallow:
+
+Sitemap: https://www.falcongateintl.com/sitemap.xml
