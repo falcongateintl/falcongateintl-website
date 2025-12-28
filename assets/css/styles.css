@@ -81,7 +81,7 @@ a:hover{text-decoration:none}
 /* Brand (flat logo) */
 .brand{display:flex;align-items:center;gap:12px;min-width:0}
 .brand img{
-  width:76px;height:76px;object-fit:contain;
+  width:90px;height:90px;object-fit:contain;
   border-radius:0;
   background:transparent;
   border:none;
